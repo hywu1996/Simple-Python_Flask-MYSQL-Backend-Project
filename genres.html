@@ -1,0 +1,74 @@
+<center> 
+<h1>Manage Genres</h1>
+</center>
+<hr width="800">
+
+<center>
+<a href="/movies">Movies</a>
+&nbsp;
+<a href="/rooms">Rooms</a>
+&nbsp;
+<a href="/showings">Showings</a>
+&nbsp;
+<a href="/customers">Customers</a>
+&nbsp;
+<a href="/attends">Attends</a>
+</center>
+
+
+<h2>Add Genre to Movie</h2>
+ <form action="/addgenre" method="post">
+     Select Movie:<br>
+     <select name="Movie_idMovie">
+     {% for movie in movies %}
+     <option value="{{movie.0}}">[{{movie.0}}] {{movie.1}}</option>
+     {% endfor %}
+     </select><br>
+     Add a Genre:<br>
+     <input type="text" name="Genre" value=""><br>
+     <br>
+     <input type="submit" value="Add">
+ </form>
+
+<h2>Remove Genre from Movie</h2>
+ <form action="/deletegenre" method="post">
+     Genre:<br>
+     <select name="Genre">
+	 {% for genre in gm %}
+	 <option value="{{genre.0}}:{{genre.1}}">[{{genre.0}}] {{genre.2}} ({{genre.1}})</option>
+	 {% endfor %}
+	 </select><br><br>
+     <input type="submit" value="Delete Genre">
+ </form>
+
+<!-- <h2>Modify Genre</h2>
+ <form action="/modifygenre" method="post">
+     Genre:<br>
+     <select name="curGenre">
+	  {% for genre in gm %}
+     <option value="{{genre.0}}:{{genre.1}}">[{{genre.0}}] {{genre.2}} ({{genre.1}})</option>
+     {% endfor %}
+	 </select><br>
+     Genre:<br>
+     <input type="text" name="Genre" value=""><br>
+     <br>
+     <input type="submit" value="Modify Genre">
+ </form> -->
+
+<!-- <h2>List Genres</h2>
+{% for genre in genres %}
+    <span>{{ genre.0 }} {{ genre.1 }}</span><br />
+{% endfor %} -->
+
+<br>
+
+<h2>Movie List (Sorted by &#8593; Genre)</h2>
+{% for genre in genresort %}
+    <span>{{ genre.1 }} - {{genre.2}} </span><br />
+{% endfor %}
+
+<br />
+
+<a href="/">
+   <input type="button" value="Home" />
+</a>

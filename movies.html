@@ -1,0 +1,69 @@
+<center> 
+<h1>Manage Movies</h1>
+</center>
+
+<hr width="800">
+
+<center>
+<a href="/genres">Genres</a>
+&nbsp;
+<a href="/rooms">Rooms</a>
+&nbsp;
+<a href="/showings">Showings</a>
+&nbsp;
+<a href="/customers">Customers</a>
+&nbsp;
+<a href="/attends">Attends</a>
+</center>
+
+
+<h2>Add New Movie</h2>
+ <form action="/addmovie" method="post">
+     Movie Title:<br>
+     <input type="text" name="Name" value=""><br/>
+     Year of Release:<br>
+     <input type="text" name="Year" value=""><br><br>
+     <input type="submit" value="Add">
+ </form>
+ <br>
+<h2>Remove Movie</h2>
+ <form action="/deletemovie" method="post">
+     Movie:<br>
+     <select name="idMovie">
+	 {% for info in movieinfo %}
+	 <option value="{{info.0}}">ID[{{info.0}}] {{info.1}}</option>
+	 {% endfor %}
+	 </select><br><br>
+     <input type="submit" value="Remove">
+ </form>
+<br>
+<h2>Modify Movie</h2>
+ <form action="/modifymovie" method="post">
+     Movie to Modify:<br>
+     <select name="idMovie">
+	 {% for info in movieinfo %}
+	 <option value="{{info.0}}">ID[{{info.0}}] {{info.1}}</option>
+	 {% endfor %}
+	 </select><br>
+     <br>
+<!--      New MovieID:<br>
+     <input type="text" name="ID" value=""><br>
+ -->
+     New Title:<br>
+     <input type="text" name="Name" value=""><br>
+     New Year:<br>
+     <input type="text" name="Year" value=""><br><br>
+     <input type="submit" value="Make Changes">
+ </form>
+
+<h2>Current Movie List</h2>
+
+{% for info in movieinfo %}
+    <span> ID [{{ info.0 }}] {{ info.1 }} ({{ info.2 }})</span><br />
+{% endfor %}
+
+<br />
+
+<a href="/">
+   <input type="button" value="Home" />
+</a>

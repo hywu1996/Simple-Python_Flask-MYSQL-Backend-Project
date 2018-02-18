@@ -1,0 +1,25 @@
+<center>
+<h1>My Viewed Movies</h1>
+<hr width="800">
+
+<a href="/search?s=0">Search Showings</a>
+&nbsp;
+<a href="/buy">Buy Ticket</a>
+&nbsp;
+<a href="/rate">Rate Showing</a>
+&nbsp;
+<a href="/profile">View Profile</a>
+<br><br>
+</center>
+
+
+<h3> Movies: </h3>
+{% for movie in mymovies %}
+    <span>{{movie.0}} || Rating: {{movie.1}}</span><br />
+{% endfor %}
+
+<br />
+
+<a href="/">
+   <input type="button" value="Home" />
+</a>

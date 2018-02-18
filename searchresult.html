@@ -1,0 +1,35 @@
+<center>
+<h1>Search Results</h1>
+<hr width="800">
+
+<a href="/search?s=0">Search Showings</a>
+&nbsp;
+<a href="/buy">Buy Ticket</a>
+&nbsp;
+<a href="/rate">Rate Showing</a>
+&nbsp;
+<a href="/viewedmovies">Viewed Movies</a>
+&nbsp;
+<a href="/profile">View Profile</a>
+<br><br>
+</center>
+
+<hr width="800">
+--------------------------------------<br><br>
+{% for search in searchresult %}
+    <span> MovieName: {{search.4}} <br/> Genre: {{search.2}} <br/> Movie Year: {{search.5}}<br/> Showing ID: {{search.0}} <br/ > Date and Time: {{search.6}}<br/> Room Number: {{search.7}} <br/> Ticket Price: {{search.8}} <br/> Seats Remaining: {{search.10}}</span><br />
+    {% if search.10 <= 0 %}
+    	<font color="red"> FULL </font> <br>
+    {% endif %}
+    --------------------------------------
+
+
+
+    <br/> <br/>
+
+{% endfor %}
+
+
+<a href="/">
+   <input type="button" value="Home" />
+</a>

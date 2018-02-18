@@ -1,0 +1,53 @@
+<center>
+<h1>Search Showings</h1>
+<hr width="800">
+
+<a href="/buy">Buy Ticket</a>
+&nbsp;
+<a href="/rate">Rate Showing</a>
+&nbsp;
+<a href="/viewedmovies">Viewed Movies</a>
+&nbsp;
+<a href="/profile">View Profile</a>
+<br><br>
+</center>
+
+<h2>Please select from the following options:</h2>
+ <form action="/searchQuery" method="post">
+     <h4>Genre:</h4>
+     <select name="Genre">
+     <option value="SearchTable.Genre"> All Genres </option>
+	 {% for genre in genres %}
+	 <option value="{{genre.0}}">{{genre.0}}</option>
+	 {% endfor %}
+	 </select><br><br>
+
+	 <h4>Date:</h4>
+	 <i>From:</i><br>
+     <select name="idShowing1">
+     <option value="1990-01-01 00:00:00"> No Start Date </option>
+	 {% for showing in showings %}
+	 <option value="{{showing.0}}">{{showing.0}}</option>
+	 {% endfor %}
+	 </select><br>
+	 <i>To:</i><br>
+     <select name="idShowing2">
+     <option value="9999-12-31 00:00:00"> No End Date </option>
+	 {% for showing in showings %}
+	 <option value="{{showing.0}}">{{showing.0}}</option>
+	 {% endfor %}
+	 </select><br><br>
+     <input type="checkbox" name="seatsAvailable" value="True"><b>Only search for showings with available seats.<br></b><br>
+     <input type="hidden" name="seatsAvailable" value="False">
+     <h4>Movie Title: </h4><i>Enter in a keyword or the full title<br></i>
+     <input type="text" name="SearchTitle" value=""><br><br><br>
+     <input type="submit" value="Search!">
+
+ </form>
+
+ 
+<br />
+
+<a href="/">
+   <input type="button" value="Home" />
+</a>

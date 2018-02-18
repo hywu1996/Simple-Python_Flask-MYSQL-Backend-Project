@@ -1,0 +1,46 @@
+<center>
+<h1>Buy Ticket</h1>
+<hr width="800">
+
+<a href="/search?s=0">Search Showings</a>
+&nbsp;
+<a href="/rate">Rate Showing</a>
+&nbsp;
+<a href="/viewedmovies">Viewed Movies</a>
+&nbsp;
+<a href="/profile">View Profile</a>
+<br><br>
+</center>
+
+ <form action="/addbuy" method="post">
+     Customer:<br>
+     <select name="Customer_idCustomer">
+	 {% for customer in customers %}
+	 <option value="{{customer.0}}">ID[{{customer.0}}] {{customer.1}} {{customer.2}}</option>
+	 {% endfor %}
+	 </select><br><br>
+     Select Showing:<br>
+     <select name="Showing_idShowing">
+	 {% for showing in ms %}
+	 <option value="{{showing.0}}">ID[{{showing.0}}] {{showing.1}} {{showing.2}} </option>
+	 {% endfor %}
+	 </select><br><br>
+     <input type="submit" value="Buy">
+ </form>
+
+
+<!-- <h2>List Attends</h2>
+{% for attend in attends %}
+    <span>CUSTOMERID[{{attend.0}}] SHOWINGID[{{attend.1}}] RATING({{attend.2}})</span><br />
+{% endfor %}
+
+<h2>List Customer Paid Tickets</h2>
+{% for paidfor in paidfors %}
+    <span>CUSTOMER[{{paidfor.0}} {{paidfor.1}}] SHOWING[{{paidfor.2}}] MOVIE({{paidfor.3}})</span><br />
+{% endfor %} -->
+
+<br />
+
+<a href="/">
+   <input type="button" value="Home" />
+</a>

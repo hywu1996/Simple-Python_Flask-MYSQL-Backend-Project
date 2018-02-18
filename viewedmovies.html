@@ -1,0 +1,32 @@
+<center>
+<h1>My Viewed Movies</h1>
+<hr width="800">
+
+<a href="/search?s=0">Search Showings</a>
+&nbsp;
+<a href="/buy">Buy Ticket</a>
+&nbsp;
+<a href="/rate">Rate Showing</a>
+&nbsp;
+<a href="/profile">View Profile</a>
+<br><br>
+</center>
+
+<h3> Log in: </h3>
+ <form action="/mymovies" method="post">
+	 </select>
+     Customer:<br>
+     <select name="Customer_idCustomer"><br><br>
+	 {% for customer in customers %}
+	 <option value="{{customer.0}}">ID[{{customer.0}}] {{customer.1}} {{customer.2}}</option>
+	 {% endfor %}
+	 </select><br>
+	 <br/>
+	 <input type="submit" value="Log In">
+ </form>
+
+ <br />
+
+<a href="/">
+   <input type="button" value="Home" />
+</a>

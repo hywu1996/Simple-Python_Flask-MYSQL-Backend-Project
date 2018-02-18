@@ -1,0 +1,73 @@
+<center>
+<h1> Manage Customers</h1>
+<hr width="800">
+<a href="/movies">Movies</a>
+&nbsp;
+<a href="/genres">Genres</a>
+&nbsp;
+<a href="/rooms">Rooms</a>
+&nbsp;
+<a href="/showings">Showings</a>
+&nbsp;
+<a href="/attends">Attends</a>
+</center>
+
+<h2>Add Customer</h2>
+ <form action="/addcustomer" method="post">
+     First Name:<br>
+     <input type="text" name="FirstName" value=""><br>
+     Last Name:<br>
+     <input type="text" name="LastName" value=""><br>
+     Email Address:<br>
+     <input type="text" name="EmailAddress" value=""><br>
+     Sex:<br>
+     <select name="Sex">
+	 <option value="M">Male</option>
+	 <option value="F">Female</option>
+	 </select><br><br>
+     <input type="submit" value="Add Customer">
+ </form>
+
+<h2>Delete Customer</h2>
+ <form action="/deletecustomer" method="post">
+     Customer:<br>
+     <select name="idCustomer">
+	 {% for customer in customers %}
+	 <option value="{{customer.0}}">ID[{{customer.0}}] {{customer.1}} {{customer.2}}</option>
+	 {% endfor %}
+	 </select><br><br>
+     <input type="submit" value="Delete Customer">
+ </form>
+
+<h2>Modify Customer</h2>
+ <form action="/modifycustomer" method="post">
+     Customer:<br>
+     <select name="idCustomer">
+	 {% for customer in customers %}
+	 <option value="{{customer.0}}">ID[{{customer.0}}] {{customer.1}} {{customer.2}}</option>
+	 {% endfor %}
+	 </select><br>
+     First Name:<br>
+     <input type="text" name="FirstName" value=""><br>
+     Last Name:<br>
+     <input type="text" name="LastName" value=""><br>
+     Email Address:<br>
+     <input type="text" name="EmailAddress" value=""><br>
+     Sex:<br>
+     <select name="Sex">
+	 <option value="M">Male</option>
+	 <option value="F">Female</option>
+	 </select><br><br>
+     <input type="submit" value="Modify Customer">
+ </form>
+
+<h2>List Customers</h2>
+{% for customer in customers %}
+    <span>ID[{{ customer.0 }}] {{ customer.2 }}, {{ customer.1 }} <br> Email:{{ customer.3 }} <br> Sex:{{ customer.4 }}</span><br><br>
+{% endfor %}
+
+<br />
+
+<a href="/">
+   <input type="button" value="Home" />
+</a>

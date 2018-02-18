@@ -1,0 +1,46 @@
+<center>
+<h1>Rate Showing</h1>
+<hr width="800">
+
+<a href="/search?s=0">Search Showings</a>
+&nbsp;
+<a href="/buy">Buy Ticket</a>
+&nbsp;
+<a href="/viewedmovies">Viewed Movies</a>
+&nbsp;
+<a href="/profile">View Profile</a>
+<br><br>
+</center>
+
+<form action="/rateshow" method="post">
+ Attend:<br>
+ <select name="Attend">
+ {% for attend in attends %}
+ <option value="{{attend.0}}:{{attend.1}}">CUSTOMERID[{{attend.0}}] SHOWINGID[{{attend.1}}]</option>
+ {% endfor %}
+ </select><br>
+ 
+ Rating:<br>
+ <select name="Rating">
+ <option value="0">0</option>
+ <option value="1">1</option>
+ <option value="2">2</option>
+ <option value="3">3</option>
+ <option value="4">4</option>
+ <option value="5">5</option>
+
+ </select><br><br>
+ <input type="submit" value="Rate">
+</form>
+
+<!-- <h2>List Attends</h2>
+{% for attend in attends %}
+    <span>CUSTOMERID[{{attend.0}}] SHOWINGID[{{attend.1}}] RATING({{attend.2}})</span><br />
+{% endfor %} -->
+
+
+<br />
+
+<a href="/">
+   <input type="button" value="Home" />
+</a>

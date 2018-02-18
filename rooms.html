@@ -1,0 +1,64 @@
+<center>
+
+<h1>Manage Rooms</h1>
+
+<hr width="800">
+
+
+<a href="/movies">Movies</a>
+&nbsp;
+<a href="/genres">Genres</a>
+&nbsp;
+<a href="/showings">Showings</a>
+&nbsp;
+<a href="/customers">Customers</a>
+&nbsp;
+<a href="/attends">Attends</a>
+</center>
+
+
+<h2>Create Room</h2>
+ <form action="/addroom" method="post">
+     Room Number:<br>
+     <input type="text" name="RmNum" value=""><br>
+     Capacity:<br>
+     <input type="text" name="size" value=""><br><br>
+     <input type="submit" value="Create">
+ </form>
+
+<h2>Delete Room</h2>
+ <form action="/deleteroom" method="post">
+     Room Number:<br>
+     <select name="RoomNumber">
+	 {% for room in rooms %}
+	 <option value="{{room.0}}">{{room.0}}</option>
+	 {% endfor %}
+	 </select><br><br>
+     <input type="submit" value="Delete">
+ </form>
+
+<h2>Modify Room</h2>
+ <form action="/modifyroom" method="post">
+     Room Number:<br>
+     <select name="OldNum">
+	 {% for room in rooms %}
+	 <option value="{{room.0}}">{{room.0}}</option>
+	 {% endfor %}
+	 </select><br>
+     Room Number:<br>
+     <input type="text" name="RmNum" value=""><br>
+     Capacity:<br>
+     <input type="text" name="size" value=""><br><br>
+     <input type="submit" value="Modify Room">
+ </form>
+
+<h2>Theatre Rooms</h2>
+{% for room in rooms %}
+    <span>RM#{{ room.0 }} || Capacity: {{ room.1 }}</span><br />
+{% endfor %}
+
+<br />
+
+<a href="/">
+   <input type="button" value="Home" />
+</a>

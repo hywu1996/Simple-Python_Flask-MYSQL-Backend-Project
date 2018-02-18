@@ -1,0 +1,89 @@
+<center>
+
+<h1>Manage Showings</h1>
+
+<hr width="800">
+
+
+<a href="/movies">Movies</a>
+&nbsp;
+<a href="/genres">Genres</a>
+&nbsp;
+<a href="/rooms">Rooms</a>
+&nbsp;
+<a href="/customers">Customers</a>
+&nbsp;
+<a href="/attends">Attends</a>
+</center>
+
+
+
+<h2>Add Showing</h2>
+ <form action="/addshowing" method="post">
+     Date/Time (YYYY-MM-DD HH:MM:SS): <br>
+     <input type="text" name="ShowingDateTime" value=""><br>
+     Featured Movie:<br>
+     <select name="Movie_idMovie">
+	 {% for movie in movies %}
+	 <option value="{{movie.0}}">ID[{{movie.0}}] {{movie.1}}</option>
+	 {% endfor %}
+	 </select><br>
+     Theatre Room:<br>
+     <select name="TheatreRoom_RoomNumber">
+	 {% for room in rooms %}
+	 <option value="{{room.0}}">RM{{room.0}}</option>
+	 {% endfor %}
+	 </select><br>
+     Ticket Price:<br>
+     <input type="text" name="TicketPrice" value=""><br><br>
+     <input type="submit" value="Add">
+ </form>
+
+<h2>Delete Showing</h2>
+ <form action="/deleteshowing" method="post">
+     Select Showing:<br>
+     <select name="idShowing">
+	 {% for showing in fullShowingID %}
+	 <option value="{{showing.0}}">ID[{{showing.0}}] ({{showing.1}}) {{showing.2}}</option>
+	 {% endfor %}
+	 </select><br><br>
+     <input type="submit" value="Delete">
+ </form>
+
+<h2>Modify Showing</h2>
+ <form action="/modifyshowing" method="post">
+     Showing Date/Time:<br>
+     <select name="idShowing">
+	 {% for showing in showings %}
+	 <option value="{{showing.0}}">{{showing.1}}</option>
+	 {% endfor %}
+	 </select><br>
+     Showing Date/Time:<br>
+     <input type="text" name="ShowingDateTime" value=""><br>
+     Movie(ID):<br>
+     <select name="Movie_idMovie">
+	 {% for movie in movies %}
+	 <option value="{{movie.0}}">ID[{{movie.0}}] {{movie.1}}</option>
+	 {% endfor %}
+	 </select><br>
+     Theatre Room Number:<br>
+     <select name="TheatreRoom_RoomNumber">
+	 {% for room in rooms %}
+	 <option value="{{room.0}}">RM{{room.0}} /{{room.1}}</option>
+	 {% endfor %}
+	 </select><br>
+     Ticket Price:<br>
+     <input type="text" name="TicketPrice" value=""><br><br>
+     <input type="submit" value="Modify">
+ </form>
+
+<h2>List of All Showings</h2>
+{% for showing in fullShowing %}
+    <span>ID[{{ showing.0 }}] || ({{ showing.1 }}) || {{ showing.2 }} || Room:[{{ showing.3 }}] || Cost: ${{ showing.4 }}</span><br />
+{% endfor %}
+
+<br />
+
+<a href="/">
+   <input type="button" value="Home" />
+</a>

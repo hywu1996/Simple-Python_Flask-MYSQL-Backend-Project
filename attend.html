@@ -1,0 +1,29 @@
+<center>
+<h1>Attends</h1>
+<hr width="800">
+<a href="/movies">Movies</a>
+&nbsp;
+<a href="/genres">Genres</a>
+&nbsp;
+<a href="/rooms">Rooms</a>
+&nbsp;
+<a href="/showings">Showings</a>
+&nbsp;
+<a href="/customers">Customers</a>
+</center>
+
+
+
+<h2>Paid For Attendences</h2>
+{% for pay in paid %}
+    <span>{{pay.1}}, {{pay.0}} <br>
+    SHOWINGID[{{pay.2}}] ({{pay.3}}) {{pay.4}}</span><br>
+    Rating: {{pay.5}} <br>
+    <br>
+{% endfor %}
+
+<br />
+
+<a href="/">
+   <input type="button" value="Home" />
+</a>
